@@ -1,6 +1,9 @@
 resource "docker_container" "db" {
   name  = "db-${terraform.workspace}-01"
-  image = "lab/db"
+  image = "postgres:16"
+  env = [
+    "POSTGRES_PASSWORD=password"
+  ]
 
    ports {
     internal = "5432"
