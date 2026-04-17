@@ -9,4 +9,8 @@ resource "docker_container" "db" {
     internal = "5432"
     external = var.db_port[terraform.workspace]
   }
+
+   networks_advanced{
+    name = docker_network.app_network.name
+   }
 }
